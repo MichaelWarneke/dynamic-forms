@@ -1,17 +1,17 @@
 import { FormControl } from '@angular/forms'
 
 export class FormControlBase extends FormControl {
-  controlType: string;
+  controlType: string = '';
 }
 
 export class FormControlTextbox extends FormControlBase {
   controlType = 'TextBox';
-  type: string;
+  type: string = '';
 }
 
 export class FormControlDate extends FormControlBase {
   controlType = 'Date';
-  type: string;
+  type: string = '';
 }
 
 export {Validators} from '@angular/forms';

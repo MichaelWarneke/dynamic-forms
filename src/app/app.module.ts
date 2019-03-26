@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { DynamicFormModule } from './dynamic-form';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { FormComponent } from './example-form/form.component';
 
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
+  imports:      [ BrowserModule, DynamicFormModule ],
+  declarations: [ AppComponent, FormComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

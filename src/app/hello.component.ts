@@ -16,7 +16,7 @@ import { FormControlBase } from './models/base-bodels';
   
   </form>
   FormValues: {{form.value | json}} <br>
-  Data: {{data | json}}
+  Data from DB: {{data | json}}
   `,
   styles: [`h1 { font-family: Lato; }`]
 })
@@ -33,8 +33,5 @@ export class HelloComponent  {
     Object.keys(this.form.controls).forEach(key => {
       this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
     })
-    let control: FormControlBase = this.form.controls['date'];
-    console.log(control);
-    console.log(this.form.controls);
   }
 }

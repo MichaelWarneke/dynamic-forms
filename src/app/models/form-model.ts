@@ -1,15 +1,15 @@
 import { Validators, FormControlTextbox, FormControlDate } from './base-models'
 
 export abstract class FormModel {
-  abstract id;
-  abstract name;
-  abstract date;
+  abstract id: any;
+  abstract name: any;
+  abstract date: any;
 };
 
 export abstract class FormModelData implements FormModel {
-  id: string | null;
-  name: string | null;
-  date: Date | null;
+  id: string | null = null;
+  name: string | null = null;
+  date: Date | null = null;
 }
 
 export class FormModelForm implements FormModel {

@@ -1,23 +1,22 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+
 import { ExampleModel, ExampleModelData, ExampleModelForm } from './form-model';
 
 @Component({
   selector: 'hello',
   template: `<h1>Hello {{name}}!</h1>
   <br>
-  <dynamic-form [form]="form"></dynamic-form>
+  ex-data: {{data | json}}
+  <dynamic-form [data]="data" [formModel]="model"></dynamic-form>
   `,
   styles: [`h1 { font-family: Lato; }`]
 })
 export class FormComponent  {
   @Input() name: string = 'Not yet';
   data: ExampleModelData;
-  form: FormGroup;
+  formModel = new ExampleModelForm();
 
-  constructor (private fb: FormBuilder) {
+  constructor () {
     this.data = {id: '1234', name: 'Hello', date: new Date(Date.now())};
-    this.form = this.fb.group(new ExampleModelForm());
-    this.form.patchValue(this.data);
   }
 }

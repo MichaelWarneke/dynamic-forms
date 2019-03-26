@@ -19,12 +19,22 @@ import { FormControlBase } from './models/base-models';
   styles: []
 })
 export class DynamicFormComponent  {
-  @Input() set form(data: FormGroup) {
-    this.form = data;
+  @Input() formModel: any;
+
+  form: FormGroup;
+
+  @Input() set data(data: any) {
+    console.warn(data);
+    if(data) {
+    this.form.patchValue(this.data);
     Object.keys(this.form.controls).forEach(key => {
       this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
     })
+    }
   }
   formlist = new Array();
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group(this.formModel);
 
+  }
 }

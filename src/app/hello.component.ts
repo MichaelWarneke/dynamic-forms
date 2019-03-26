@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
-import { FormModel, FormModelData, FormModelForm, FormControlBase } from './models/form-model';
+import { FormModel, FormModelData, FormModelForm } from './models/form-model';
+import { FormControlBase } from './models/base-bodels';
 
 @Component({
   selector: 'hello',
@@ -20,7 +21,7 @@ import { FormModel, FormModelData, FormModelForm, FormControlBase } from './mode
   styles: [`h1 { font-family: Lato; }`]
 })
 export class HelloComponent  {
-  @Input() name: string;
+  @Input() name: string = 'Not yet';
   data: FormModelData;
   form: FormGroup;
   formlist = new Array();

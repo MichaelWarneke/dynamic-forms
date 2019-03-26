@@ -6,8 +6,7 @@ import { ExampleModel, ExampleModelData, ExampleModelForm } from './form-model';
   selector: 'hello',
   template: `<h1>Hello {{name}}!</h1>
   <br>
-  ex-data: {{data | json}}
-  <dynamic-form [data]="data" [formModel]="model"></dynamic-form>
+  <dynamic-form [data]="data" [formModel]="formModel"></dynamic-form>
   `,
   styles: [`h1 { font-family: Lato; }`]
 })

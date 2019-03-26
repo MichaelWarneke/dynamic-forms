@@ -5,12 +5,12 @@ export class FormControlBase extends FormControl {
 }
 
 export class FormControlTextbox extends FormControlBase {
-  controlType = 'TextBox';
+  controlType = 'input';
   type: string = '';
 }
 
 export class FormControlDate extends FormControlBase {
-  controlType = 'Date';
+  controlType = 'datepicker';
   type: string = '';
 }
 

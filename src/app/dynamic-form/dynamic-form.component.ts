@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { FormControlBase } from './models/base-models';
 
@@ -6,35 +6,42 @@ import { FormControlBase } from './models/base-models';
   selector: 'dynamic-form',
   template: `
   <form [formGroup]="form">
-
-  <div *ngFor="let val of formlist">
-    {{val.key}}:
-    <input [formControlName]="val.key">
-  </div>
-  
+    <ng-container *ngFor="let val of formlist;" dynamicField [val]="val" [group]="form"></ng-container>
   </form>
   FormValues: {{form.value | json}} <br>
   Data from DB: {{data | json}}
   `,
   styles: []
 })
-export class DynamicFormComponent  {
+export class DynamicFormComponent implements OnInit  {
   @Input() formModel: any;
-
-  form: FormGroup;
-
+  
+  _data: any;
   @Input() set data(data: any) {
-    console.warn(data);
-    if(data) {
-    this.form.patchValue(this.data);
-    Object.keys(this.form.controls).forEach(key => {
-      this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
-    })
+    this._data = data;
+    if(data && this.form) {
+      this.form.patchValue(this.data);
+      Object.keys(this.form.controls).forEach(key => {
+        this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
+      })
     }
+  };
+  get data() {
+    return this._data;
   }
-  formlist = new Array();
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group(this.formModel);
 
+  form: FormGroup | null = null;
+  formlist = new Array();
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    if(this.data) {
+      this.form = this.fb.group(this.formModel);
+      this.form.patchValue(this.data);
+      Object.keys(this.form.controls).forEach(key => {
+        this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
+      })
+    }
   }
 }

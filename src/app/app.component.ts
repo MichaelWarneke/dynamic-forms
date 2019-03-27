@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular-Dynamic-Form-Example (Typesafe)';
+  name = 'Angular-Dynamic-Form-Example (Property safe)';
 }

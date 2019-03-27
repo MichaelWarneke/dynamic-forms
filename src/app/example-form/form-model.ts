@@ -1,12 +1,12 @@
 import { Validators, FormControlTextbox, FormControlDate } from '../dynamic-form';
 
-export abstract class ExampleModel {
-  abstract id: any;
-  abstract name: any;
-  abstract date: any;
+export interface ExampleModel {
+  id: any;
+  name: any;
+  date: any;
 };
 
-export abstract class ExampleModelData implements ExampleModel {
+export class ExampleModelData implements ExampleModel {
   id: string | null = null;
   name: string | null = null;
   date: Date | null = null;

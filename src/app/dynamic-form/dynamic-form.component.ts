@@ -19,12 +19,7 @@ export class DynamicFormComponent implements OnInit  {
   _data: any;
   @Input() set data(data: any) {
     this._data = data;
-    if(data && this.form) {
-      this.form.patchValue(this.data);
-      Object.keys(this.form.controls).forEach(key => {
-        this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
-      })
-    }
+    this.updateData(data);
   };
   get data() {
     return this._data;
@@ -36,8 +31,12 @@ export class DynamicFormComponent implements OnInit  {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    if(this.data) {
-      this.form = this.fb.group(this.formModel);
+    this.form = this.fb.group(this.formModel);
+    this.updateData(this.data);
+  }
+
+  updateData(data: any) {
+    if(data && this.form) {
       this.form.patchValue(this.data);
       Object.keys(this.form.controls).forEach(key => {
         this.formlist.push({...this.form.get(key) as FormControlBase, key: key });

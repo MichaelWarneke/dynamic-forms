@@ -5,12 +5,11 @@ import { FormControlTextbox } from '../models/base-models';
 @Component({
   selector: 'dynamic-form-input',
   template: `
-  <div [formGroup]="group">
-    {{val.key}}:
-    <input [formControlName]="val.key">
-  </div>
+  <mat-form-field [formGroup]="group">
+    <input matInput placeholder="{{val.key}}" [formControlName]="val.key">
+  </mat-form-field>
   `,
-  styles: []
+  styles: [`mat-form-field{margin: 10px}`]
 })
 export class DynamicFormInputComponent  {
   val: FormControlTextbox | null = null;

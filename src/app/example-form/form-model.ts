@@ -13,8 +13,8 @@ export abstract class ExampleModelData implements ExampleModel {
 }
 
 export class ExampleModelForm implements ExampleModel {
-  id = new FormControlTextbox('nothing', Validators.required);
-  name = new FormControlTextbox('nothing', Validators.required);
-  date = new FormControlDate('nothing', Validators.required);
+  id = new FormControlTextbox('nothing', [Validators.required]);
+  name = new FormControlTextbox('nothing', [Validators.required]);
+  date = new FormControlDate('nothing', [Validators.required]);
 }
 

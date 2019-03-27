@@ -5,10 +5,11 @@ import { FormControlTextbox } from '../models/base-models';
 @Component({
   selector: 'dynamic-form-datepicker',
   template: `
-  <div [formGroup]="group">
-    {{val.key}}:
-    <input type="date" [formControlName]="val.key">
-  </div>
+  <mat-form-field [formGroup]="group">
+    <input matInput [matDatepicker]="picker" placeholder="{{val.key}}" [formControlName]="val.key">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
   `,
   styles: []
 })

@@ -61,6 +61,7 @@ export class DynamicFormComponent implements OnInit  {
   updateData(data: any) {
     if(data && this.form) {
       this.form.patchValue(this.data);
+      this.formlist = new Array();
       Object.keys(this.form.controls).forEach(key => {
         this.formlist.push({...this.form.get(key) as FormControlBase, key: key });
       })

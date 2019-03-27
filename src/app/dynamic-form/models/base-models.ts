@@ -1,6 +1,10 @@
 import { FormControl } from '@angular/forms'
 
-export class FormControlBase extends FormControl {
+export interface FormBase {
+  controlType: string;
+}
+
+export class FormControlBase extends FormControl implements FormBase {
   controlType: string = '';
 }
 

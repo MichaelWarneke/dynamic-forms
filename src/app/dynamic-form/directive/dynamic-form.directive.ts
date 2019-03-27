@@ -8,17 +8,17 @@ import {
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { DynamicFormInputComponent, DynamicFormDatepickerComponent } from "../templates";
-import { FormControlTextbox } from '../models/base-models';
+import { FormControlBase } from '../models/base-models';
 
 const componentMapper = {
   input: DynamicFormInputComponent,
-  datepicker: DynamicFormDatepickerComponent
+  datepicker: DynamicFormDatepickerComponent,
 };
 @Directive({
   selector: "[dynamicField]"
 })
 export class DynamicFieldDirective implements OnInit {
-  @Input() val: FormControlTextbox | null = null;
+  @Input() val: FormControlBase | null = null;
   @Input() group: FormGroup | null = null;
   componentRef: any;
   constructor(

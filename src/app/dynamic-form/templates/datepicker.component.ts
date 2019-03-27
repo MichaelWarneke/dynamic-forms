@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormControlTextbox } from '../models/base-models';
+import { FormControlDate } from '../models/base-models';
 
 @Component({
   selector: 'dynamic-form-datepicker',
@@ -14,7 +14,7 @@ import { FormControlTextbox } from '../models/base-models';
   styles: []
 })
 export class DynamicFormDatepickerComponent  {
-  val: FormControlTextbox | null = null;
+  val: FormControlDate | null = null;
   group: FormGroup | null = null;
   
   constructor() {}

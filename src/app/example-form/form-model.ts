@@ -18,3 +18,10 @@ export class ExampleModelForm implements ExampleModel {
   date = new FormControlDate('nothing', [Validators.required]);
 }
 
+export class FormSetup {
+  model = new ExampleModelForm();
+  submitButtonText = 'Save ME';
+  deleteButtonText = 'Delete Me';
+  resetButtonText = 'Reset';
+}
+
